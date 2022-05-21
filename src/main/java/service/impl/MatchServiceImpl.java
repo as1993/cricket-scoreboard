@@ -7,8 +7,6 @@ import main.java.repository.MatchRepository;
 import main.java.service.MatchService;
 import main.java.service.ScoreboardService;
 
-import java.util.Locale;
-
 public class MatchServiceImpl implements MatchService {
 
     private final MatchRepository matchRepository;
@@ -47,7 +45,7 @@ public class MatchServiceImpl implements MatchService {
         PlayerDetails playerStats = details.getPlayerStats(team).getOrDefault(onCrease[onStrike], new PlayerDetails());
         TeamDetails[] teamDetails = details.getTeamStats();
 
-        switch (event.toLowerCase(Locale.ROOT)) {
+        switch (event.toLowerCase()) {
             case "w" -> {
                 playerStats.setBallsFaced(playerStats.getBallsFaced() + 1);
                 int wicketsLost = teamDetails[team].getWicketsLost() + 1;
