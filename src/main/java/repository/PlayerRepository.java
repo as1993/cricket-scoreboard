@@ -1,6 +1,6 @@
 package main.java.repository;
 
-import main.java.PlayerDetails;
+import main.java.domain.PlayerDetails;
 
 import java.util.HashMap;
 import java.util.Map;
