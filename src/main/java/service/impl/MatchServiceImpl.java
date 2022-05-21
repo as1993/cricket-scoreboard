@@ -1,8 +1,15 @@
-package main.java;
+package main.java.service.impl;
+
+import main.java.domain.MatchDetails;
+import main.java.domain.PlayerDetails;
+import main.java.domain.TeamDetails;
+import main.java.repository.MatchRepository;
+import main.java.service.MatchService;
+import main.java.service.ScoreboardService;
 
 import java.util.Locale;
 
-public class MatchService {
+public class MatchServiceImpl implements MatchService {
 
     private final MatchRepository matchRepository;
     private final ScoreboardService scoreboardService;
@@ -10,13 +17,14 @@ public class MatchService {
     private final String[][] battingOrder;
     private int onStrike;
 
-    public MatchService(MatchRepository matchRepository, ScoreboardService scoreboardService, int nPlayersInEachTeam) {
+    public MatchServiceImpl(MatchRepository matchRepository, ScoreboardService scoreboardService, int nPlayersInEachTeam) {
         this.matchRepository = matchRepository;
         this.scoreboardService = scoreboardService;
         this.onCrease = new String[2];
         this.battingOrder = new String[2][nPlayersInEachTeam];
     }
 
+    @Override
     public void setBattingOrder(int teamNumber, String[] battingOrder) {
         this.onStrike = 0;
         this.battingOrder[teamNumber] = battingOrder;
@@ -28,6 +36,7 @@ public class MatchService {
         details.getPlayerStats(teamNumber).put(battingOrder[1], new PlayerDetails());
     }
 
+    @Override
     public String addBallData(int team, int ballNumber, String event) {
         return addEvent(team, ballNumber, event);
     }

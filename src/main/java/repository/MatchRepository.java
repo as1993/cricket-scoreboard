@@ -1,4 +1,6 @@
-package main.java;
+package main.java.repository;
+
+import main.java.domain.MatchDetails;
 
 import java.util.HashMap;
 import java.util.Map;

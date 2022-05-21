@@ -1,4 +1,6 @@
-package main.java;
+package main.java.repository;
+
+import main.java.PlayerDetails;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,11 +9,11 @@ public class PlayerRepository {
 
     private final Map<String, PlayerDetails> allPlayerStats;
 
-    public PlayerRepository(){
+    public PlayerRepository() {
         allPlayerStats = new HashMap<>();
     }
 
-    public void createPlayer(String name){
+    public void createPlayer(String name) {
         allPlayerStats.put(name, new PlayerDetails());
     }
 
@@ -19,7 +21,7 @@ public class PlayerRepository {
         return allPlayerStats;
     }
 
-    public PlayerDetails getPlayerDetails(String name){
+    public PlayerDetails getPlayerDetails(String name) {
         return allPlayerStats.get(name);
     }
 }

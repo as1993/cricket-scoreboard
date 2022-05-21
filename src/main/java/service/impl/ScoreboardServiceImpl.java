@@ -1,4 +1,10 @@
-package main.java;
+package main.java.service.impl;
+
+import main.java.domain.MatchDetails;
+import main.java.domain.PlayerDetails;
+import main.java.domain.TeamDetails;
+import main.java.repository.MatchRepository;
+import main.java.service.ScoreboardService;
 
 import java.util.Map;
 

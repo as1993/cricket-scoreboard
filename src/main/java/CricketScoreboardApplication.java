@@ -1,8 +1,14 @@
 package main.java;
 
+import main.java.repository.MatchRepository;
+import main.java.service.MatchService;
+import main.java.service.ScoreboardService;
+import main.java.service.impl.MatchServiceImpl;
+import main.java.service.impl.ScoreboardServiceImpl;
+
 import java.util.Scanner;
 
-public class CricketScoreboard {
+public class CricketScoreboardApplication {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -15,7 +21,7 @@ public class CricketScoreboard {
 
         MatchRepository matchRepository = new MatchRepository(nPlayers);
         ScoreboardService scoreboardService = new ScoreboardServiceImpl(matchRepository);
-        MatchService matchService = new MatchService(matchRepository, scoreboardService, nPlayers);
+        MatchService matchService = new MatchServiceImpl(matchRepository, scoreboardService, nPlayers);
 
         for (int k = 0; k < 2; k++) {
             String[] battingOrder = new String[nPlayers];
